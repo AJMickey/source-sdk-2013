@@ -502,3 +502,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/src/game/server/vscript_server.cpp
+/src/game/server/point_template.cpp

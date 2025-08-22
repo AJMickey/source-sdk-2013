@@ -199,11 +199,13 @@ void CTFLaserPointer::PrimaryAttack( void )
 		return;
 #ifdef GAME_DLL
 	CObjectSentrygun *pSentry = dynamic_cast<CObjectSentrygun*>( pPlayer->GetObjectOfType( OBJ_SENTRYGUN ) );
-	if ( !pSentry )
+	//CObjectSentrygun *pDisposableSentry = dynamic_cast<CObjectSentrygun*>( pPlayer->GetObjectOfType( OBJ_SENTRYGUN, MODE_SENTRYGUN_DISPOSABLE ) );
+	if ( !pSentry ) // && !pDisposableSentry
 		return;
 
 	pSentry->FireNextFrame();
-
+	// pDisposableSentry->FireNextFrame();
+	
 	if ( GetIdealActivity() != ACT_ITEM1_VM_RELOAD )
 	{
 		m_flStartedFiring = gpGlobals->curtime;

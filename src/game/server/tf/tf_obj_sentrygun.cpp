@@ -866,7 +866,7 @@ bool CObjectSentrygun::FindTarget()
 		// CTFLaserPointer* pPointer = static_cast<CTFLaserPointer*>( pBuilder->Weapon_OwnsThisID( TF_WEAPON_LASER_POINTER ) );
 		// FIX ME:  Temp fix until we find out why the pointer thinks its deployed after spawn
 		CTFLaserPointer* pPointer = dynamic_cast<CTFLaserPointer*>( pBuilder->GetActiveWeapon() );
-		if ( pPointer && pPointer->HasLaserDot() && !IsDisposableBuilding() )
+		if ( pPointer && pPointer->HasLaserDot() ) // && !IsDisposableBuilding()
 		{
 			m_bPlayerControlled = true;
 			m_nShieldLevel.Set( SHIELD_NORMAL );

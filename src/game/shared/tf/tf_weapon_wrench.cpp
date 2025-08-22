@@ -121,12 +121,12 @@ void CTFWrench::OnFriendlyBuildingHit( CBaseObject *pObject, CTFPlayer *pPlayer,
 
 	CDisablePredictionFiltering disabler;
 
-	if ( pObject->IsDisposableBuilding() )
-	{
-		CSingleUserRecipientFilter singleFilter( pPlayer );
-		EmitSound( singleFilter, pObject->entindex(), "Player.UseDeny" );
-	}
-	else
+	//if ( pObject->IsDisposableBuilding() )
+	//{
+	//	CSingleUserRecipientFilter singleFilter( pPlayer );
+	//	EmitSound( singleFilter, pObject->entindex(), "Player.UseDeny" );
+	//}
+	if ( pObject )
 	{
 		if ( bUsefulHit )
 		{

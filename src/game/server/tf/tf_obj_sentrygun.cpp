@@ -607,8 +607,8 @@ void CObjectSentrygun::FinishUpgrading( void )
 //-----------------------------------------------------------------------------
 bool CObjectSentrygun::OnWrenchHit( CTFPlayer *pPlayer, CTFWrench *pWrench, Vector hitLoc )
 {
-	if ( IsDisposableBuilding() )
-		return false;
+	//if ( IsDisposableBuilding() )
+	//	return false;
 
 	bool bDidWork = false;
 
@@ -1275,7 +1275,7 @@ void CObjectSentrygun::Attack()
 			m_flFireRate *= 0.5f;
 		}
 			
-		if ( IsMiniBuilding() && !IsDisposableBuilding() )
+		if ( IsMiniBuilding() || IsDisposableBuilding() )
 		{
 			m_flFireRate *= 0.75f;
 		}
@@ -1660,7 +1660,7 @@ void CObjectSentrygun::ModifyFireBulletsDamage( CTakeDamageInfo* dmgInfo )
 //-----------------------------------------------------------------------------
 float CObjectSentrygun::GetPushMultiplier()
 {
-	if ( IsMiniBuilding() )
+	if ( IsMiniBuilding() || IsDisposableBuilding() )
 		return 8.f;
 	else
 		return 16.f;
@@ -1823,7 +1823,7 @@ bool CObjectSentrygun::MoveTurret( void )
 
 	int iBaseTurnRate = GetBaseTurnRate();
 	
-	if ( IsMiniBuilding() )
+	if ( IsMiniBuilding() || IsDisposableBuilding() )
 	{
 		iBaseTurnRate *= 1.35f;
 	}

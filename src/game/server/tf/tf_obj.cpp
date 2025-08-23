@@ -1387,13 +1387,10 @@ bool CBaseObject::StartBuilding( CBaseEntity *pBuilder )
 			gameeventmanager->FireEvent( event, true );	// don't send to clients
 		}
 	}
-	else if ( IsMiniBuilding() )
+	else if ( IsMiniBuilding() || IsDisposableBuilding() )
 	{
 		int iHealth = GetMaxHealthForCurrentLevel();
-		if ( !IsDisposableBuilding() )
-		{
-			iHealth /= 2.0f;
-		}
+		iHealth /= 2.0f;
 		SetHealth( iHealth );
 	}
 	else

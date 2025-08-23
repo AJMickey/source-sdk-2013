@@ -2177,12 +2177,14 @@ void CObjectSentrygun::MakeDisposableBuilding( CTFPlayer* pPlayer )
 	if ( IsDisposableBuilding() )
 		return;
 
-	SetMaxHealth( SENTRYGUN_MINI_MAX_HEALTH );
-	SetHealth( SENTRYGUN_MINI_MAX_HEALTH );
-
-	SetModelScale( DISPOSABLE_SCALE );
-	
 	BaseClass::MakeDisposableBuilding( pPlayer );
+	SetModelScale( DISPOSABLE_SCALE );
+
+	int iHealth = GetMaxHealthForCurrentLevel();
+
+	SetMaxHealth( iHealth );
+	SetHealth( iHealth / 2.0f );
+	SetBuildingSize();
 }
 
 
